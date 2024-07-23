@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ci1uo7twm5mlg"]
+[gd_scene load_steps=7 format=3 uid="uid://ci1uo7twm5mlg"]
 
 [ext_resource type="Texture2D" uid="uid://cq0dt3tq2ywph" path="res://assets/addons/Tiny_Swords/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="1_bv0f3"]
 [ext_resource type="PackedScene" uid="uid://btens1gyc5qlx" path="res://objects/player/player.tscn" id="2_wsju7"]
@@ -12,10 +12,13 @@ font_size = 45
 [sub_resource type="LabelSettings" id="LabelSettings_ms6cv"]
 font_size = 45
 
+[sub_resource type="LabelSettings" id="LabelSettings_nrw8x"]
+font_size = 30
+
 [node name="TestPlayer" type="Node2D"]
 
 [node name="Matriz_Frames_Player" type="Sprite2D" parent="."]
-position = Vector2(234, 331)
+position = Vector2(318, 333)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_bv0f3")
 
@@ -66,7 +69,7 @@ offset_left = 606.0
 offset_top = -710.0
 offset_right = 760.0
 offset_bottom = -647.0
-text = "Parado"
+text = "Esperando"
 label_settings = SubResource("LabelSettings_ms6cv")
 vertical_alignment = 1
 
@@ -84,7 +87,7 @@ offset_left = 606.0
 offset_top = -326.667
 offset_right = 760.0
 offset_bottom = -263.667
-text = "Ataque em baixo"
+text = "Ataque frontal 01"
 label_settings = SubResource("LabelSettings_ms6cv")
 vertical_alignment = 1
 
@@ -93,7 +96,7 @@ offset_left = 606.0
 offset_top = -133.334
 offset_right = 810.0
 offset_bottom = -70.3336
-text = "Ataque em cima"
+text = "Ataque frontal 02"
 label_settings = SubResource("LabelSettings_ms6cv")
 vertical_alignment = 1
 
@@ -133,5 +136,15 @@ text = "Ataque para cima 02"
 label_settings = SubResource("LabelSettings_ms6cv")
 vertical_alignment = 1
 
+[node name="Titulo_Animacao" type="Label" parent="."]
+offset_left = 843.0
+offset_top = 229.0
+offset_right = 994.0
+offset_bottom = 292.0
+text = "Animação:"
+label_settings = SubResource("LabelSettings_nrw8x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Player" parent="." instance=ExtResource("2_wsju7")]
-position = Vector2(848, 329)
+position = Vector2(915, 396)
