@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var quadro_animacoes: AnimationPlayer = $Animacoes
 
-var animacoes: Array = ["Esperar","Correr","Atacar_Para_Frente_01",
+const animacoes: Array = ["Esperar","Correr","Atacar_Para_Frente_01",
 "Atacar_Para_Frente_02","Atacar_Para_Baixo_01","Atacar_Para_Baixo_02",
 "Atacar_Para_Cima_01","Atacar_Para_Cima_02"]
 
@@ -14,14 +14,18 @@ func _ready() -> void:
 
 func _process(_delta) -> void:
 	
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("Move_to_Down") or Input.is_action_just_pressed("Move_to_Right"):
 		
 		if(indice_animacao + 1 <= 7):
 			
 			indice_animacao += 1
 			
-		else:
+			quadro_animacoes.play(animacoes[indice_animacao])
+		
+	elif Input.is_action_just_pressed("Move_to_Up") or Input.is_action_just_pressed("Move_to_Left"):
+		
+		if(indice_animacao - 1 >= 0):
 			
-			indice_animacao = 0
+			indice_animacao -= 1
 			
-		quadro_animacoes.play(animacoes[indice_animacao])
+			quadro_animacoes.play(animacoes[indice_animacao])
