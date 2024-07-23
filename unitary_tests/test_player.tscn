@@ -1,0 +1,137 @@
+[gd_scene load_steps=6 format=3 uid="uid://ci1uo7twm5mlg"]
+
+[ext_resource type="Texture2D" uid="uid://cq0dt3tq2ywph" path="res://assets/addons/Tiny_Swords/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="1_bv0f3"]
+[ext_resource type="PackedScene" uid="uid://btens1gyc5qlx" path="res://objects/player/player.tscn" id="2_wsju7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xs5cg"]
+font_size = 45
+
+[sub_resource type="LabelSettings" id="LabelSettings_nhevc"]
+font_size = 45
+
+[sub_resource type="LabelSettings" id="LabelSettings_ms6cv"]
+font_size = 45
+
+[node name="TestPlayer" type="Node2D"]
+
+[node name="Matriz_Frames_Player" type="Sprite2D" parent="."]
+position = Vector2(234, 331)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_bv0f3")
+
+[node name="Colunas" type="Label" parent="Matriz_Frames_Player"]
+offset_left = -490.0
+offset_top = -863.0
+offset_right = 482.0
+offset_bottom = -800.0
+text = "0             1              2              3              4             5"
+label_settings = SubResource("LabelSettings_xs5cg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Linhas" type="Label" parent="Matriz_Frames_Player"]
+offset_left = -656.667
+offset_top = -733.333
+offset_right = -573.667
+offset_bottom = 715.667
+text = "0
+
+
+1
+
+
+2
+
+
+3
+
+
+4
+
+
+5
+
+
+6
+
+
+7"
+label_settings = SubResource("LabelSettings_nhevc")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="Matriz_Frames_Player"]
+offset_left = 606.0
+offset_top = -710.0
+offset_right = 760.0
+offset_bottom = -647.0
+text = "Parado"
+label_settings = SubResource("LabelSettings_ms6cv")
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Matriz_Frames_Player"]
+offset_left = 606.0
+offset_top = -516.667
+offset_right = 760.0
+offset_bottom = -453.667
+text = "Correndo"
+label_settings = SubResource("LabelSettings_ms6cv")
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Matriz_Frames_Player"]
+offset_left = 606.0
+offset_top = -326.667
+offset_right = 760.0
+offset_bottom = -263.667
+text = "Ataque em baixo"
+label_settings = SubResource("LabelSettings_ms6cv")
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Matriz_Frames_Player"]
+offset_left = 606.0
+offset_top = -133.334
+offset_right = 810.0
+offset_bottom = -70.3336
+text = "Ataque em cima"
+label_settings = SubResource("LabelSettings_ms6cv")
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="Matriz_Frames_Player"]
+offset_left = 606.0
+offset_top = 60.0
+offset_right = 760.0
+offset_bottom = 123.0
+text = "Ataque para baixo 01"
+label_settings = SubResource("LabelSettings_ms6cv")
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="Matriz_Frames_Player"]
+offset_left = 606.0
+offset_top = 253.333
+offset_right = 810.0
+offset_bottom = 316.333
+text = "Ataque para baixo 02"
+label_settings = SubResource("LabelSettings_ms6cv")
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="Matriz_Frames_Player"]
+offset_left = 606.0
+offset_top = 443.333
+offset_right = 760.0
+offset_bottom = 506.333
+text = "Ataque para cima 01"
+label_settings = SubResource("LabelSettings_ms6cv")
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="Matriz_Frames_Player"]
+offset_left = 606.0
+offset_top = 636.666
+offset_right = 810.0
+offset_bottom = 699.666
+text = "Ataque para cima 02"
+label_settings = SubResource("LabelSettings_ms6cv")
+vertical_alignment = 1
+
+[node name="Player" parent="." instance=ExtResource("2_wsju7")]
+position = Vector2(848, 329)
