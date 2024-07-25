@@ -1,10 +1,18 @@
-extends CharacterBody2D
+extends Node
 
-@export_range(1,10) var velocidade_movimento: float = 1.5
+var inimigo: Enemy
+
+@export_range(1,10) var velocidade_movimento: float = 1
 
 var sentido_movimento: Vector2 = Vector2(0,0)
 
-@onready var imagem_inimigo: AnimatedSprite2D = $Corpo/Imagem
+var imagem_inimigo: AnimatedSprite2D
+
+func _ready() -> void:
+	
+	inimigo = get_parent()
+	
+	imagem_inimigo = inimigo.get_node("Corpo/Imagem")
 
 func _physics_process(_delta: float) -> void:
 	
@@ -12,16 +20,16 @@ func _physics_process(_delta: float) -> void:
 	
 	var coordenadas_atuais_player: Vector2 = Global.coordenadas_player
 	
-	var distancia: Vector2 = coordenadas_atuais_player - position
+	var distancia: Vector2 = coordenadas_atuais_player - inimigo.position
 	
 	# Fazendo com que os índices do vetor sejam iguais a 1 ou -1.
 	# Para entender melhor, pesquise sobre normalização de vetores.
 	
 	sentido_movimento = distancia.normalized()
 	
-	velocity = sentido_movimento * (velocidade_movimento * 100)
+	inimigo.velocity = sentido_movimento * (velocidade_movimento * 100)
 	
-	move_and_slide()
+	inimigo.move_and_slide()
 	
 	Mirror_Image()
 
