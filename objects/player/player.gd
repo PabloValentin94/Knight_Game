@@ -20,6 +20,8 @@ var timer_ataque: float = 0.6
 
 var condicao_ataque: bool = false
 
+var qnt_dano: int = 2
+
 func _process(delta: float) -> void:
 	
 	# Atualizando o valor da variável global relacionada ao player.
@@ -120,3 +122,11 @@ func Player_Attack() -> void:
 		quadro_animacoes.play(animacoes[indice_animacao])
 		
 		condicao_ataque = true
+
+func Apply_Damage() -> void:
+	
+	var enemies = get_tree().get_nodes_in_group("Inimigos")
+	
+	for enemy in enemies:
+		
+		print(enemy.Suffer_Damage(qnt_dano), "\n")
