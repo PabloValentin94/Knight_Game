@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://btens1gyc5qlx"]
+[gd_scene load_steps=15 format=3 uid="uid://btens1gyc5qlx"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_gb00o"]
 [ext_resource type="Texture2D" uid="uid://cq0dt3tq2ywph" path="res://assets/addons/Tiny_Swords/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="1_sfee5"]
@@ -249,6 +249,9 @@ _data = {
 "RESET": SubResource("Animation_l2h2i")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_h4u0m"]
+radius = 103.0
+
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_gb00o")
@@ -267,3 +270,10 @@ libraries = {
 "": SubResource("AnimationLibrary_k7wdx")
 }
 autoplay = "Esperar"
+
+[node name="Alcance_Ataques" type="Area2D" parent="."]
+position = Vector2(0, -29)
+
+[node name="Area" type="CollisionShape2D" parent="Alcance_Ataques"]
+shape = SubResource("CircleShape2D_h4u0m")
+debug_color = Color(0, 0.6, 0.701961, 0)

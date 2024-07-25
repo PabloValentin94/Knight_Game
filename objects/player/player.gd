@@ -20,6 +20,8 @@ var timer_ataque: float = 0.6
 
 var condicao_ataque: bool = false
 
+@onready var area_alcance_ataque: Area2D = $Alcance_Ataques
+
 var qnt_dano: int = 2
 
 func _process(delta: float) -> void:
@@ -125,8 +127,12 @@ func Player_Attack() -> void:
 
 func Apply_Damage() -> void:
 	
-	var enemies = get_tree().get_nodes_in_group("Inimigos")
+	var corpos: Array[Node2D] = area_alcance_ataque.get_overlapping_bodies()
 	
-	for enemy in enemies:
+	for corpo in corpos:
 		
-		print(enemy.Suffer_Damage(qnt_dano), "\n")
+		if corpo.is_in_group("Inimigos"):
+			
+			var inimigo: Enemy = corpo
+		
+			print(inimigo.Suffer_Damage(qnt_dano), "\n")
