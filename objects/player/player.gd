@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var direcoes: Vector2 = Vector2(0,0)
 
-@export_range(1,10) var velocidade_movimento: int = 3
+@export_range(1,10) var velocidade_movimento: float = 3
 
 @onready var quadro_animacoes: AnimationPlayer = $Animacoes
 
@@ -91,7 +91,7 @@ func Move_Player() -> void:
 		
 func Mirror_Image() -> void:
 	
-	# Verificando a direção horizontal para qual o personagem está correndo.
+	# Verificando o sentido horizontal para qual o personagem está correndo.
 		
 	if direcoes.x > 0:
 		
