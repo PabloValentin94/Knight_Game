@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://iwgjd0tlvpta"]
+
+[ext_resource type="SpriteFrames" uid="uid://c0gjaxy3beblr" path="res://objects/enemies/pawn/frames.tres" id="1_bbr3f"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uqjhl"]
+radius = 20.0
+height = 68.0
+
+[node name="Pawn" type="CharacterBody2D"]
+motion_mode = 1
+
+[node name="Corpo" type="CollisionShape2D" parent="."]
+position = Vector2(0, -24)
+shape = SubResource("CapsuleShape2D_uqjhl")
+
+[node name="Imagem" type="AnimatedSprite2D" parent="Corpo"]
+sprite_frames = ExtResource("1_bbr3f")
+animation = &"Correr"
+autoplay = "Correr"

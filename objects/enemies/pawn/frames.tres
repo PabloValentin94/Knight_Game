@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://c0gjaxy3beblr"]
+
+[ext_resource type="Texture2D" uid="uid://dr1cv8qk0yptj" path="res://assets/addons/Tiny_Swords/Factions/Knights/Troops/Pawn/Red/Pawn_Red.png" id="1_12540"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tuwj"]
+atlas = ExtResource("1_12540")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ob7e"]
+atlas = ExtResource("1_12540")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1svao"]
+atlas = ExtResource("1_12540")
+region = Rect2(384, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgbni"]
+atlas = ExtResource("1_12540")
+region = Rect2(576, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw0qh"]
+atlas = ExtResource("1_12540")
+region = Rect2(768, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge8ks"]
+atlas = ExtResource("1_12540")
+region = Rect2(960, 192, 192, 192)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tuwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ob7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1svao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgbni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uw0qh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ge8ks")
+}],
+"loop": true,
+"name": &"Correr",
+"speed": 10.0
+}]
