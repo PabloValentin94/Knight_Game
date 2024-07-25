@@ -8,9 +8,11 @@ var sentido_movimento: Vector2 = Vector2(0,0)
 
 func _physics_process(_delta: float) -> void:
 	
-	var coordenadas_player: Vector2 = Vector2(0,0)
+	# Utilizando uma variável global.
 	
-	var distancia: Vector2 = coordenadas_player - position
+	var coordenadas_atuais_player: Vector2 = Global.coordenadas_player
+	
+	var distancia: Vector2 = coordenadas_atuais_player - position
 	
 	# Fazendo com que os índices do vetor sejam iguais a 1 ou -1.
 	# Para entender melhor, pesquise sobre normalização de vetores.

@@ -22,6 +22,10 @@ var condicao_ataque: bool = false
 
 func _process(delta: float) -> void:
 	
+	# Atualizando o valor da variável global relacionada ao player.
+	
+	Global.coordenadas_player = position
+	
 	Define_Directions()
 	
 	if condicao_ataque:
