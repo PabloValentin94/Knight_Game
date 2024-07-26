@@ -127,6 +127,8 @@ func Player_Attack() -> void:
 
 func Apply_Damage() -> void:
 	
+	# Determinando se algum inimigo entrou na área de alcance dos ataques.
+	
 	var corpos: Array[Node2D] = area_alcance_ataque.get_overlapping_bodies()
 	
 	for corpo in corpos:
@@ -134,5 +136,32 @@ func Apply_Damage() -> void:
 		if corpo.is_in_group("Inimigos"):
 			
 			var inimigo: Enemy = corpo
-		
-			print(inimigo.Suffer_Damage(qnt_dano), "\n")
+			
+			# Determinando se o jogador está de frente para o inimigo.
+			
+			var perspectiva_player_inimigo = (inimigo.position - position).normalized()
+			
+			var sentido_ataque: Vector2 = Vector2(0,0)
+			
+			if imagem_player.flip_h:
+				
+				sentido_ataque = Vector2.LEFT
+				
+			else:
+				
+				sentido_ataque = Vector2.RIGHT
+				
+			# A variável abaixo determina a perspectiva entre o player e o inimigo,
+			# ou seja, o player está de frente para com o inimigo? Está de costas?
+			# Se encontra no mesmo ponto do eixo X (Horizontal)? Entre outras coisas.
+			
+			# Pesquise sobre produto escalar e ciclo trigonométrico para
+			# ampliar seu entendimento sobre o assunto.
+				
+			var produto_escalar = perspectiva_player_inimigo.dot(sentido_ataque)
+			
+			print("Valor do Dot Product: ", produto_escalar, "\n")
+			
+			if produto_escalar >= 0.3:
+				
+				print(inimigo.Suffer_Damage(qnt_dano), "\n")
