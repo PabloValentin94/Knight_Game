@@ -2,7 +2,7 @@ extends Node
 
 var inimigo: Enemy
 
-@export_range(1,10) var velocidade_movimento: float = 1
+@export_range(0,10) var velocidade_movimento: float = 1
 
 var sentido_movimento: Vector2 = Vector2(0,0)
 

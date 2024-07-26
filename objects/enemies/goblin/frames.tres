@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://bhygqy44v4lej"]
+
+[ext_resource type="Texture2D" uid="uid://duatrvm6ow4ul" path="res://assets/addons/Tiny_Swords/Factions/Goblins/Troops/Torch/Purple/Torch_Purple.png" id="1_a3mop"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vr7x"]
+atlas = ExtResource("1_a3mop")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kli7a"]
+atlas = ExtResource("1_a3mop")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_252o5"]
+atlas = ExtResource("1_a3mop")
+region = Rect2(384, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xybcn"]
+atlas = ExtResource("1_a3mop")
+region = Rect2(576, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0vgl"]
+atlas = ExtResource("1_a3mop")
+region = Rect2(768, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl2qm"]
+atlas = ExtResource("1_a3mop")
+region = Rect2(960, 192, 192, 192)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vr7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kli7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_252o5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xybcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0vgl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vl2qm")
+}],
+"loop": true,
+"name": &"Correr",
+"speed": 10.0
+}]

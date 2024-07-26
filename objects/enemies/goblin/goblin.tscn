@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbsqkf44lu3ff"]
+
+[ext_resource type="Script" path="res://objects/enemies/enemy.gd" id="1_r5t3b"]
+[ext_resource type="PackedScene" uid="uid://daslhx8k5oomb" path="res://objects/enemies/events/death.tscn" id="2_bea7n"]
+[ext_resource type="SpriteFrames" uid="uid://bhygqy44v4lej" path="res://objects/enemies/goblin/frames.tres" id="3_6qtcf"]
+[ext_resource type="Script" path="res://objects/enemies/behaviors/follow_player.gd" id="4_2g17x"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uqjhl"]
+radius = 38.0
+height = 82.0
+
+[node name="Goblin" type="CharacterBody2D" groups=["Inimigos"]]
+scale = Vector2(2, 2)
+motion_mode = 1
+script = ExtResource("1_r5t3b")
+vida_inimigo = 20
+evento_morte = ExtResource("2_bea7n")
+
+[node name="Corpo" type="CollisionShape2D" parent="."]
+position = Vector2(0, -28)
+shape = SubResource("CapsuleShape2D_uqjhl")
+
+[node name="Imagem" type="AnimatedSprite2D" parent="Corpo"]
+sprite_frames = ExtResource("3_6qtcf")
+animation = &"Correr"
+autoplay = "Correr"
+
+[node name="Follow" type="Node" parent="."]
+script = ExtResource("4_2g17x")
+velocidade_movimento = 0.5
