@@ -6,11 +6,11 @@ var direcoes: Vector2 = Vector2(0,0)
 
 @onready var quadro_animacoes: AnimationPlayer = $Animacoes
 
-const animacoes: Array = ["Esperar", "Correr", "Atacar_Para_Frente_01",
+const animacoes: Array[String] = ["Esperar", "Correr", "Atacar_Para_Frente_01",
 "Atacar_Para_Frente_02", "Atacar_Para_Baixo_01", "Atacar_Para_Baixo_02",
 "Atacar_Para_Cima_01", "Atacar_Para_Cima_02"]
 
-var indice_animacao: int = 0
+# var indice_animacao: int = 0
 
 @onready var imagem_player: Sprite2D = $Corpo/Imagem
 
@@ -119,9 +119,9 @@ func Player_Attack() -> void:
 		
 		timer_ataque = 0.6
 		
-		indice_animacao = randi_range(2,7)
+		# indice_animacao = randi_range(2,7)
 		
-		quadro_animacoes.play(animacoes[indice_animacao])
+		quadro_animacoes.play(animacoes[2])
 		
 		condicao_ataque = true
 
@@ -160,8 +160,8 @@ func Apply_Damage() -> void:
 				
 			var produto_escalar = perspectiva_player_inimigo.dot(sentido_ataque)
 			
-			print("Valor do Dot Product: ", produto_escalar, "\n")
+			# print("Valor do Dot Product: ", produto_escalar, "\n")
 			
 			if produto_escalar >= 0.3:
 				
-				print(inimigo.Suffer_Damage(qnt_dano), "\n")
+				inimigo.Suffer_Damage(qnt_dano)

@@ -2,8 +2,42 @@ class_name Enemy extends Node2D
 
 @export_range(1,100) var vida_inimigo:int = 10
 
-func Suffer_Damage(dano: int) -> String:
+@export var evento_morte: PackedScene
 
-	vida_inimigo -= dano
+func Suffer_Damage(dano: int) -> void:
 	
-	return str("Dano sofrido: ", dano, ". Vida atual do inimigo: ", vida_inimigo)
+	if vida_inimigo > 0:
+		
+		vida_inimigo -= dano
+		
+		print("Dano sofrido: ", dano, ". Vida atual do inimigo: ", vida_inimigo, "\n")
+		
+		# Fazendo uma estilização que mostra ao usuário se o ataque acertou o inimigo.
+		
+		modulate = Color.RED
+		
+		var efeito_tween = create_tween()
+		
+		efeito_tween.set_ease(Tween.EASE_IN)
+		
+		efeito_tween.set_trans(Tween.TRANS_QUINT)
+		
+		efeito_tween.tween_property(self, "modulate", Color.WHITE, 0.25)
+		
+		# Veja sobre em: https://easings.net
+		
+		if vida_inimigo <= 0:
+			
+			Die()
+
+func Die() -> void:
+	
+	if evento_morte:
+		
+		var morte = evento_morte.instantiate()
+		
+		morte.position = position
+		
+		get_parent().add_child(morte)
+		
+	queue_free()
