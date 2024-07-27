@@ -259,6 +259,7 @@ radius = 58.0345
 [node name="Player" type="CharacterBody2D" groups=["Jogador"]]
 motion_mode = 1
 script = ExtResource("1_gb00o")
+velocidade_movimento = 5.0
 vida_player = 80
 evento_morte = ExtResource("2_fr6m7")
 

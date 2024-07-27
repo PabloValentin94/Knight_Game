@@ -13,7 +13,6 @@ height = 82.0
 scale = Vector2(2, 2)
 motion_mode = 1
 script = ExtResource("1_r5t3b")
-vida_inimigo = 20
 evento_morte = ExtResource("2_bea7n")
 
 [node name="Corpo" type="CollisionShape2D" parent="."]
@@ -27,4 +26,4 @@ autoplay = "Correr"
 
 [node name="Follow" type="Node" parent="."]
 script = ExtResource("4_2g17x")
-velocidade_movimento = 0.5
+velocidade_movimento = 0.25

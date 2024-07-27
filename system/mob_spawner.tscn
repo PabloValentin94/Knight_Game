@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://chc80cv8ocut8"]
+
+[ext_resource type="Script" path="res://system/mob_spawner.gd" id="1_vlw3s"]
+[ext_resource type="PackedScene" uid="uid://iwgjd0tlvpta" path="res://objects/enemies/pawn/pawn.tscn" id="2_3hyut"]
+[ext_resource type="PackedScene" uid="uid://b8qlxp7hv6fo5" path="res://objects/enemies/sheep/sheep.tscn" id="3_6iwku"]
+[ext_resource type="PackedScene" uid="uid://cbsqkf44lu3ff" path="res://objects/enemies/goblin/goblin.tscn" id="4_qa2gs"]
+
+[sub_resource type="Curve2D" id="Curve2D_df4au"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -91, -217, 0, 0, 0, 0, 1215, -235, 0, 0, 0, 0, 1238, 730, 0, 0, 0, 0, -82.0258, 721.283, 0, 0, 0, 0, -89.3683, -205.361)
+}
+point_count = 5
+
+[node name="MobSpawner" type="Node2D"]
+script = ExtResource("1_vlw3s")
+inimigos = Array[PackedScene]([ExtResource("2_3hyut"), ExtResource("3_6iwku"), ExtResource("4_qa2gs")])
+
+[node name="Tracado" type="Path2D" parent="."]
+position = Vector2(-111.458, 31.5803)
+scale = Vector2(1.22573, 1.14715)
+curve = SubResource("Curve2D_df4au")
+
+[node name="Pontos" type="PathFollow2D" parent="Tracado"]
+unique_name_in_owner = true
+position = Vector2(-91, -217)
+rotation = -0.0137817
+
+[node name="_Timer_27657" type="Timer" parent="Tracado/Pontos"]
+wait_time = 0.2
+one_shot = true
