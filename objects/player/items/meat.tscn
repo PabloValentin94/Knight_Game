@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjstt1sc1regw"]
+
+[ext_resource type="SpriteFrames" uid="uid://dy0gx0rbplys8" path="res://objects/player/items/frames_meat.tres" id="1_wl538"]
+[ext_resource type="Script" path="res://objects/player/items/life_regenerator.gd" id="2_1johf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xlrbl"]
+radius = 37.054
+
+[node name="Meat" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_wl538")
+animation = &"Surgir"
+autoplay = "Surgir"
+offset = Vector2(0, -24)
+script = ExtResource("2_1johf")
+taxa_regeneracao = 20
+
+[node name="Area_Surgimento" type="Area2D" parent="."]
+position = Vector2(0, -24)
+
+[node name="Corpo" type="CollisionShape2D" parent="Area_Surgimento"]
+shape = SubResource("CircleShape2D_xlrbl")

@@ -1,0 +1,60 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://dy0gx0rbplys8"]
+
+[ext_resource type="Texture2D" uid="uid://dv4i6guwpksui" path="res://assets/addons/Tiny_Swords/Resources/Resources/M_Spawn.png" id="1_eiwjt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1srq"]
+atlas = ExtResource("1_eiwjt")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ehjy"]
+atlas = ExtResource("1_eiwjt")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_invdn"]
+atlas = ExtResource("1_eiwjt")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cuv2a"]
+atlas = ExtResource("1_eiwjt")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvllh"]
+atlas = ExtResource("1_eiwjt")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cys4"]
+atlas = ExtResource("1_eiwjt")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvtcx"]
+atlas = ExtResource("1_eiwjt")
+region = Rect2(768, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1srq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ehjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_invdn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cuv2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvllh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cys4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvtcx")
+}],
+"loop": false,
+"name": &"Surgir",
+"speed": 10.0
+}]

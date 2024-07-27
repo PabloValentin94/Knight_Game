@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://btens1gyc5qlx"]
+[gd_scene load_steps=17 format=3 uid="uid://btens1gyc5qlx"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_gb00o"]
 [ext_resource type="Texture2D" uid="uid://cq0dt3tq2ywph" path="res://assets/addons/Tiny_Swords/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="1_sfee5"]
+[ext_resource type="PackedScene" uid="uid://de231n322uree" path="res://objects/player/events/death.tscn" id="2_fr6m7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_50n2x"]
 radius = 21.0
@@ -250,11 +251,16 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h4u0m"]
-radius = 138.004
+radius = 158.003
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_wasvl"]
+radius = 58.0345
+
+[node name="Player" type="CharacterBody2D" groups=["Jogador"]]
 motion_mode = 1
 script = ExtResource("1_gb00o")
+vida_player = 80
+evento_morte = ExtResource("2_fr6m7")
 
 [node name="Corpo" type="CollisionShape2D" parent="."]
 position = Vector2(0, -29)
@@ -277,3 +283,10 @@ position = Vector2(0, -29)
 [node name="Area" type="CollisionShape2D" parent="Alcance_Ataques"]
 shape = SubResource("CircleShape2D_h4u0m")
 debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="Area_Dano" type="Area2D" parent="."]
+position = Vector2(0, -29)
+
+[node name="Area" type="CollisionShape2D" parent="Area_Dano"]
+shape = SubResource("CircleShape2D_wasvl")
+debug_color = Color(1, 0.00784314, 0.0392157, 0)

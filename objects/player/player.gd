@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 var direcoes: Vector2 = Vector2(0,0)
 
@@ -24,6 +24,16 @@ var condicao_ataque: bool = false
 
 var qnt_dano: int = 2
 
+@onready var area_dano: Area2D = $Area_Dano
+
+var timer_processamento_dano: float = 0
+
+@export_range(1,200) var vida_player:int = 50
+
+@export_range(1,200) var vida_maxima_player:int = 100
+
+@export var evento_morte: PackedScene
+
 func _process(delta: float) -> void:
 	
 	# Atualizando o valor da variável global relacionada ao player.
@@ -31,6 +41,8 @@ func _process(delta: float) -> void:
 	Global.coordenadas_player = position
 	
 	Define_Directions()
+	
+	Damage_Hitbox_Verification(delta)
 	
 	if condicao_ataque:
 		
@@ -165,3 +177,65 @@ func Apply_Damage() -> void:
 			if produto_escalar >= 0.3:
 				
 				inimigo.Suffer_Damage(qnt_dano)
+				
+func Damage_Hitbox_Verification(delta: float) -> void:
+	
+	timer_processamento_dano -= delta
+	
+	if timer_processamento_dano <= 0:
+		
+		timer_processamento_dano = 0.5
+	
+		if vida_player > 0:
+		
+			var corpos: Array[Node2D] = area_dano.get_overlapping_bodies()
+			
+			for corpo in corpos:
+				
+				if corpo.is_in_group("Inimigos"):
+					
+					Suffer_Damage(2)
+				
+func Suffer_Damage(dano: int) -> void:
+	
+	vida_player -= dano
+	
+	print("Dano sofrido: ", dano, ". Vida atual do player: ", vida_player, "\n")
+	
+	modulate = Color.RED
+	
+	var efeito_tween = create_tween()
+	
+	efeito_tween.set_ease(Tween.EASE_IN)
+	
+	efeito_tween.set_trans(Tween.TRANS_QUINT)
+	
+	efeito_tween.tween_property(self, "modulate", Color.WHITE, 0.25)
+	
+	if vida_player <= 0:
+		
+		Die()
+
+func Die() -> void:
+	
+	if evento_morte:
+		
+		var morte = evento_morte.instantiate()
+		
+		morte.position = position
+		
+		get_parent().add_child(morte)
+		
+	queue_free()
+
+func Heal(regeneracao: int) -> void:
+	
+	print("Vida antes da cura: ", vida_player, "\n")
+	
+	vida_player += regeneracao
+	
+	if vida_player > vida_maxima_player:
+		
+		vida_player = vida_maxima_player
+		
+	print("Vida após a cura: ", vida_player, "\n")
