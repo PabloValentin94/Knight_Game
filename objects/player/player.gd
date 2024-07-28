@@ -1,38 +1,56 @@
 class_name Player extends CharacterBody2D
 
-var direcoes: Vector2 = Vector2(0,0)
-
-@export_range(1,10) var velocidade_movimento: float = 3
-
-@onready var quadro_animacoes: AnimationPlayer = $Animacoes
-
-const animacoes: Array[String] = ["Esperar", "Correr", "Atacar_Para_Frente_01",
-"Atacar_Para_Frente_02", "Atacar_Para_Baixo_01", "Atacar_Para_Baixo_02",
-"Atacar_Para_Cima_01", "Atacar_Para_Cima_02"]
+@export_category("Game Definitions")
 
 # var indice_animacao: int = 0
 
-@onready var imagem_player: Sprite2D = $Corpo/Imagem
+@export var deadzone_controle: float = 0.15
 
-const deadzone_controle = 0.15
+var intervalo_processamento_dano: float = 0.5
+
+var timer_processamento_dano: float = 0
+
+@export_category("Animations Definitions")
+
+@export var animacoes: Array[String] = ["Esperar", "Correr", "Atacar_Para_Frente_01",
+"Atacar_Para_Frente_02", "Atacar_Para_Baixo_01", "Atacar_Para_Baixo_02",
+"Atacar_Para_Cima_01", "Atacar_Para_Cima_02"]
+
+@export_category("Player Definitions")
+
+@export_range(1,10) var velocidade_movimento: float = 3
+
+const vida_maxima_player:int = 100
+
+@export_range(1,vida_maxima_player) var vida_player:int = 50
+
+@export var qnt_dano_ataque_normal: int = 2
 
 var timer_ataque: float = 0.6
 
 var condicao_ataque: bool = false
 
+@export var evento_morte: PackedScene
+
+@export_category("Special Attack Definitions")
+
+@export var qnt_dano_ataque_especial: int = 1
+
+@export var intervalo_surgimento_ataque_especial: float = 10
+
+var timer_surgimento_ataque_especial: float = 0
+
+@export var evento_ataque_especial: PackedScene
+
+var direcoes: Vector2 = Vector2(0,0)
+
+@onready var quadro_animacoes: AnimationPlayer = $Animacoes
+
+@onready var imagem_player: Sprite2D = $Corpo/Imagem
+
 @onready var area_alcance_ataque: Area2D = $Alcance_Ataques
 
-var qnt_dano: int = 2
-
 @onready var area_dano: Area2D = $Area_Dano
-
-var timer_processamento_dano: float = 0
-
-@export_range(1,200) var vida_player:int = 50
-
-@export_range(1,200) var vida_maxima_player:int = 100
-
-@export var evento_morte: PackedScene
 
 func _process(delta: float) -> void:
 	
@@ -42,8 +60,6 @@ func _process(delta: float) -> void:
 	
 	Define_Directions()
 	
-	Damage_Hitbox_Verification(delta)
-	
 	if condicao_ataque:
 		
 		timer_ataque -= delta
@@ -51,6 +67,10 @@ func _process(delta: float) -> void:
 		if timer_ataque <= 0:
 		
 			condicao_ataque = false
+			
+	Damage_Hitbox_Verification(delta)
+	
+	Active_Special_Attack(delta)
 
 func _physics_process(_delta: float) -> void:
 	
@@ -176,7 +196,7 @@ func Apply_Damage() -> void:
 			
 			if produto_escalar >= 0.3:
 				
-				inimigo.Suffer_Damage(qnt_dano)
+				inimigo.Suffer_Damage(qnt_dano_ataque_normal)
 				
 func Damage_Hitbox_Verification(delta: float) -> void:
 	
@@ -184,7 +204,7 @@ func Damage_Hitbox_Verification(delta: float) -> void:
 	
 	if timer_processamento_dano <= 0:
 		
-		timer_processamento_dano = 0.5
+		timer_processamento_dano = intervalo_processamento_dano
 	
 		if vida_player > 0:
 		
@@ -239,3 +259,17 @@ func Heal(regeneracao: int) -> void:
 		vida_player = vida_maxima_player
 		
 	print("Vida após a cura: ", vida_player, "\n")
+	
+func Active_Special_Attack(delta: float) -> void:
+	
+	timer_surgimento_ataque_especial -= delta
+	
+	if timer_surgimento_ataque_especial <= 0:
+		
+		timer_surgimento_ataque_especial = intervalo_surgimento_ataque_especial
+		
+		var ataque_especial: Node = evento_ataque_especial.instantiate()
+		
+		ataque_especial.qnt_dano = qnt_dano_ataque_especial
+		
+		add_child(ataque_especial)

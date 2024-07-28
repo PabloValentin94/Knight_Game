@@ -1,0 +1,145 @@
+[gd_scene load_steps=9 format=3 uid="uid://wknmx5svt12k"]
+
+[ext_resource type="Script" path="res://objects/player/events/special/especial.gd" id="1_nwy52"]
+[ext_resource type="Material" uid="uid://c71cfi10cvahf" path="res://objects/player/events/special/canvas_item_material.tres" id="2_amax1"]
+[ext_resource type="Texture2D" uid="uid://b36uuoerae5v6" path="res://assets/addons/Kenney_Particle_Pack/circle_03.png" id="3_0d6vk"]
+[ext_resource type="Texture2D" uid="uid://31hnbf80xrc5" path="res://assets/addons/Kenney_Particle_Pack/light_02.png" id="4_yvj2n"]
+[ext_resource type="Texture2D" uid="uid://bfjg0qa1fbpc8" path="res://assets/addons/Kenney_Particle_Pack/magic_02.png" id="5_anml5"]
+
+[sub_resource type="Animation" id="Animation_pwfpw"]
+resource_name = "Surgir"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Imagens/Magica:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 7.85398]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Imagens:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 2, 3, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.25, 1.25), Vector2(1.25, 1.25), Vector2(1.25, 1.25), Vector2(1.25, 1.25), Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Imagens/Aura:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Imagens/Luz:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -7.85398]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Imagens/Luz:scale")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5, 1.5, 2.5, 3.5, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2), Vector2(1, 1), Vector2(2, 2), Vector2(1, 1)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5, 1.5, 2.4, 3.5, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"Apply_Damage"
+}, {
+"args": [],
+"method": &"Apply_Damage"
+}, {
+"args": [],
+"method": &"Apply_Damage"
+}, {
+"args": [],
+"method": &"Apply_Damage"
+}, {
+"args": [],
+"method": &"Apply_Damage"
+}, {
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_agde5"]
+_data = {
+"Surgir": SubResource("Animation_pwfpw")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3q45q"]
+radius = 338.037
+
+[node name="Especial" type="Node2D"]
+script = ExtResource("1_nwy52")
+
+[node name="Imagens" type="Node2D" parent="."]
+modulate = Color(0, 0.6, 0.701961, 1)
+scale = Vector2(1e-05, 1e-05)
+
+[node name="Aura" type="Sprite2D" parent="Imagens"]
+modulate = Color(1, 1, 1, 0)
+material = ExtResource("2_amax1")
+scale = Vector2(1.125, 1.125)
+texture = ExtResource("3_0d6vk")
+
+[node name="Luz" type="Sprite2D" parent="Imagens"]
+material = ExtResource("2_amax1")
+rotation = -7.85398
+texture = ExtResource("4_yvj2n")
+
+[node name="Magica" type="Sprite2D" parent="Imagens"]
+material = ExtResource("2_amax1")
+rotation = 7.85398
+scale = Vector2(2, 2)
+texture = ExtResource("5_anml5")
+
+[node name="Animacao" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_agde5")
+}
+autoplay = "Surgir"
+speed_scale = 1.25
+
+[node name="Alcance_Especial" type="Area2D" parent="."]
+
+[node name="Area" type="CollisionShape2D" parent="Alcance_Especial"]
+shape = SubResource("CircleShape2D_3q45q")
+debug_color = Color(1, 0.00784314, 0.0392157, 0)

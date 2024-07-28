@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://wb663ulks5h1"]
 
 [ext_resource type="PackedScene" uid="uid://btens1gyc5qlx" path="res://objects/player/player.tscn" id="1_jl76l"]
-[ext_resource type="PackedScene" uid="uid://iwgjd0tlvpta" path="res://objects/enemies/pawn/pawn.tscn" id="2_of73c"]
-[ext_resource type="PackedScene" uid="uid://b8qlxp7hv6fo5" path="res://objects/enemies/sheep/sheep.tscn" id="3_6yn7h"]
-[ext_resource type="PackedScene" uid="uid://cbsqkf44lu3ff" path="res://objects/enemies/goblin/goblin.tscn" id="4_p8xy8"]
+[ext_resource type="PackedScene" uid="uid://iwgjd0tlvpta" path="res://objects/enemies/types/pawn/pawn.tscn" id="2_of73c"]
+[ext_resource type="PackedScene" uid="uid://b8qlxp7hv6fo5" path="res://objects/enemies/types/sheep/sheep.tscn" id="3_6yn7h"]
+[ext_resource type="PackedScene" uid="uid://cbsqkf44lu3ff" path="res://objects/enemies/types/goblin/goblin.tscn" id="4_p8xy8"]
 
 [node name="TestEnemies" type="Node2D"]
 

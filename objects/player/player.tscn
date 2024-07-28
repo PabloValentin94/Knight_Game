@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://btens1gyc5qlx"]
+[gd_scene load_steps=18 format=3 uid="uid://btens1gyc5qlx"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_gb00o"]
 [ext_resource type="Texture2D" uid="uid://cq0dt3tq2ywph" path="res://assets/addons/Tiny_Swords/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="1_sfee5"]
-[ext_resource type="PackedScene" uid="uid://de231n322uree" path="res://objects/player/events/death.tscn" id="2_fr6m7"]
+[ext_resource type="PackedScene" uid="uid://de231n322uree" path="res://objects/player/events/death/death.tscn" id="2_fr6m7"]
+[ext_resource type="PackedScene" uid="uid://wknmx5svt12k" path="res://objects/player/events/special/especial.tscn" id="3_806ei"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_50n2x"]
 radius = 21.0
@@ -260,8 +261,8 @@ radius = 58.0345
 motion_mode = 1
 script = ExtResource("1_gb00o")
 velocidade_movimento = 5.0
-vida_player = 80
 evento_morte = ExtResource("2_fr6m7")
+evento_ataque_especial = ExtResource("3_806ei")
 
 [node name="Corpo" type="CollisionShape2D" parent="."]
 position = Vector2(0, -29)
