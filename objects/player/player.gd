@@ -44,13 +44,21 @@ var timer_surgimento_ataque_especial: float = 0
 
 var direcoes: Vector2 = Vector2(0,0)
 
-@onready var quadro_animacoes: AnimationPlayer = $Animacoes
+@onready var barra_vida: ProgressBar = $Barra_Vida
 
 @onready var imagem_player: Sprite2D = $Corpo/Imagem
 
-@onready var area_alcance_ataque: Area2D = $Alcance_Ataques
+@onready var area_alcance_ataque: Area2D = $Area_Alcance_Ataques
 
 @onready var area_dano: Area2D = $Area_Dano
+
+@onready var quadro_animacoes: AnimationPlayer = $Animacoes
+
+func _ready() -> void:
+	
+	barra_vida.max_value = vida_maxima_player
+	
+	barra_vida.value = vida_player
 
 func _process(delta: float) -> void:
 	
@@ -219,6 +227,8 @@ func Damage_Hitbox_Verification(delta: float) -> void:
 func Suffer_Damage(dano: int) -> void:
 	
 	vida_player -= dano
+	
+	barra_vida.value -= dano
 	
 	print("Dano sofrido: ", dano, ". Vida atual do player: ", vida_player, "\n")
 	

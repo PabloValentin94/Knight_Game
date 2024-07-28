@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://btens1gyc5qlx"]
+[gd_scene load_steps=20 format=3 uid="uid://btens1gyc5qlx"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_gb00o"]
 [ext_resource type="Texture2D" uid="uid://cq0dt3tq2ywph" path="res://assets/addons/Tiny_Swords/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="1_sfee5"]
@@ -257,6 +257,12 @@ radius = 158.003
 [sub_resource type="CircleShape2D" id="CircleShape2D_wasvl"]
 radius = 58.0345
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4g3p5"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bdbke"]
+bg_color = Color(0, 0.501961, 0, 1)
+
 [node name="Player" type="CharacterBody2D" groups=["Jogador"]]
 motion_mode = 1
 script = ExtResource("1_gb00o")
@@ -279,10 +285,10 @@ libraries = {
 }
 autoplay = "Esperar"
 
-[node name="Alcance_Ataques" type="Area2D" parent="."]
+[node name="Area_Alcance_Ataques" type="Area2D" parent="."]
 position = Vector2(0, -29)
 
-[node name="Area" type="CollisionShape2D" parent="Alcance_Ataques"]
+[node name="Area" type="CollisionShape2D" parent="Area_Alcance_Ataques"]
 shape = SubResource("CircleShape2D_h4u0m")
 debug_color = Color(0, 0.6, 0.701961, 0)
 
@@ -292,3 +298,20 @@ position = Vector2(0, -29)
 [node name="Area" type="CollisionShape2D" parent="Area_Dano"]
 shape = SubResource("CircleShape2D_wasvl")
 debug_color = Color(1, 0.00784314, 0.0392157, 0)
+
+[node name="Barra_Vida" type="ProgressBar" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_4g3p5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bdbke")
+rounded = true
+show_percentage = false
