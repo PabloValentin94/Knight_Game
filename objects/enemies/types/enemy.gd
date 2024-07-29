@@ -2,6 +2,10 @@ class_name Enemy extends Node2D
 
 @export_range(1,100) var vida_inimigo:int = 10
 
+var evento_dano: PackedScene = preload("res://objects/enemies/events/display_damage/display_damage.tscn")
+
+@onready var marcador_dano: Marker2D = $Marcador_Dano
+
 @export var evento_morte: PackedScene
 
 func Suffer_Damage(dano: int) -> void:
@@ -25,6 +29,16 @@ func Suffer_Damage(dano: int) -> void:
 		efeito_tween.tween_property(self, "modulate", Color.WHITE, 0.25)
 		
 		# Veja sobre em: https://easings.net
+		
+		if evento_dano and marcador_dano:
+		
+			var numero_dano: Node = evento_dano.instantiate()
+			
+			numero_dano.valor_dano = dano
+			
+			numero_dano.position = marcador_dano.position
+			
+			add_child(numero_dano)
 		
 		if vida_inimigo <= 0:
 			

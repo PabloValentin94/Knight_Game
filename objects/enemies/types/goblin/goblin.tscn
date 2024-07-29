@@ -27,3 +27,6 @@ autoplay = "Correr"
 [node name="Follow" type="Node" parent="."]
 script = ExtResource("4_2g17x")
 velocidade_movimento = 0.25
+
+[node name="Marcador_Dano" type="Marker2D" parent="."]
+position = Vector2(0, -68)

@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var area_alcance_especial: Area2D = $Alcance_Especial
+@onready var area_alcance_especial: Area2D = $Area_Alcance_Especial
 
 @export var qnt_dano: int = 1
 

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_gb00o"]
 [ext_resource type="Texture2D" uid="uid://cq0dt3tq2ywph" path="res://assets/addons/Tiny_Swords/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="1_sfee5"]
 [ext_resource type="PackedScene" uid="uid://de231n322uree" path="res://objects/player/events/death/death.tscn" id="2_fr6m7"]
-[ext_resource type="PackedScene" uid="uid://wknmx5svt12k" path="res://objects/player/events/special/especial.tscn" id="3_806ei"]
+[ext_resource type="PackedScene" uid="uid://wknmx5svt12k" path="res://objects/player/events/special_attack/special_attack.tscn" id="3_806ei"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_50n2x"]
 radius = 21.0

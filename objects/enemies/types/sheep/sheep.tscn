@@ -26,3 +26,6 @@ autoplay = "Correr"
 
 [node name="Follow" type="Node" parent="."]
 script = ExtResource("4_jjv22")
+
+[node name="Marcador_Dano" type="Marker2D" parent="."]
+position = Vector2(0, -41)

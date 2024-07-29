@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://wknmx5svt12k"]
 
-[ext_resource type="Script" path="res://objects/player/events/special/especial.gd" id="1_nwy52"]
-[ext_resource type="Material" uid="uid://c71cfi10cvahf" path="res://objects/player/events/special/canvas_item_material.tres" id="2_amax1"]
-[ext_resource type="Texture2D" uid="uid://b36uuoerae5v6" path="res://assets/addons/Kenney_Particle_Pack/circle_03.png" id="3_0d6vk"]
-[ext_resource type="Texture2D" uid="uid://31hnbf80xrc5" path="res://assets/addons/Kenney_Particle_Pack/light_02.png" id="4_yvj2n"]
-[ext_resource type="Texture2D" uid="uid://bfjg0qa1fbpc8" path="res://assets/addons/Kenney_Particle_Pack/magic_02.png" id="5_anml5"]
+[ext_resource type="Script" path="res://objects/player/events/special_attack/special_attack.gd" id="1_h5x2h"]
+[ext_resource type="Material" uid="uid://c71cfi10cvahf" path="res://objects/player/events/special_attack/canvas_item_material.tres" id="1_kjlhj"]
+[ext_resource type="Texture2D" uid="uid://b36uuoerae5v6" path="res://assets/addons/Kenney_Particle_Pack/circle_03.png" id="2_rdqc6"]
+[ext_resource type="Texture2D" uid="uid://31hnbf80xrc5" path="res://assets/addons/Kenney_Particle_Pack/light_02.png" id="3_84njd"]
+[ext_resource type="Texture2D" uid="uid://bfjg0qa1fbpc8" path="res://assets/addons/Kenney_Particle_Pack/magic_02.png" id="4_6u6mr"]
 
 [sub_resource type="Animation" id="Animation_pwfpw"]
 resource_name = "Surgir"
@@ -107,8 +107,8 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_3q45q"]
 radius = 338.037
 
-[node name="Especial" type="Node2D"]
-script = ExtResource("1_nwy52")
+[node name="SpecialAttack" type="Node2D"]
+script = ExtResource("1_h5x2h")
 
 [node name="Imagens" type="Node2D" parent="."]
 modulate = Color(0, 0.6, 0.701961, 1)
@@ -116,20 +116,20 @@ scale = Vector2(1e-05, 1e-05)
 
 [node name="Aura" type="Sprite2D" parent="Imagens"]
 modulate = Color(1, 1, 1, 0)
-material = ExtResource("2_amax1")
+material = ExtResource("1_kjlhj")
 scale = Vector2(1.125, 1.125)
-texture = ExtResource("3_0d6vk")
+texture = ExtResource("2_rdqc6")
 
 [node name="Luz" type="Sprite2D" parent="Imagens"]
-material = ExtResource("2_amax1")
+material = ExtResource("1_kjlhj")
 rotation = -7.85398
-texture = ExtResource("4_yvj2n")
+texture = ExtResource("3_84njd")
 
 [node name="Magica" type="Sprite2D" parent="Imagens"]
-material = ExtResource("2_amax1")
+material = ExtResource("1_kjlhj")
 rotation = 7.85398
 scale = Vector2(2, 2)
-texture = ExtResource("5_anml5")
+texture = ExtResource("4_6u6mr")
 
 [node name="Animacao" type="AnimationPlayer" parent="."]
 libraries = {
@@ -138,8 +138,8 @@ libraries = {
 autoplay = "Surgir"
 speed_scale = 1.25
 
-[node name="Alcance_Especial" type="Area2D" parent="."]
+[node name="Area_Alcance_Especial" type="Area2D" parent="."]
 
-[node name="Area" type="CollisionShape2D" parent="Alcance_Especial"]
+[node name="Area" type="CollisionShape2D" parent="Area_Alcance_Especial"]
 shape = SubResource("CircleShape2D_3q45q")
 debug_color = Color(1, 0.00784314, 0.0392157, 0)
