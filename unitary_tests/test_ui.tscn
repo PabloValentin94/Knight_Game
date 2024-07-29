@@ -1,65 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://beadkq6qye4hr"]
+[gd_scene load_steps=3 format=3 uid="uid://beadkq6qye4hr"]
 
 [ext_resource type="PackedScene" uid="uid://btens1gyc5qlx" path="res://objects/player/player.tscn" id="1_4w2mj"]
-[ext_resource type="Texture2D" uid="uid://5ihmkouv1k68" path="res://assets/addons/Tiny_Swords/UI/Banners/Banner_Horizontal.png" id="2_s58hk"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wsd5j"]
-texture = ExtResource("2_s58hk")
-texture_margin_left = 96.0
-texture_margin_top = 80.0
-texture_margin_right = 96.0
-texture_margin_bottom = 112.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-region_rect = Rect2(32, 48, 128, 128)
-
-[sub_resource type="LabelSettings" id="LabelSettings_km4ht"]
-font_size = 20
-font_color = Color(0, 0, 0, 1)
+[ext_resource type="PackedScene" uid="uid://snihbqh4sbl3" path="res://ui/ui.tscn" id="2_phuyy"]
 
 [node name="TestUi" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_4w2mj")]
 position = Vector2(559, 349)
 
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="Dados" type="Panel" parent="UI"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -377.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = 132.0
-grow_horizontal = 0
-theme_override_styles/panel = SubResource("StyleBoxTexture_wsd5j")
-
-[node name="Carne" type="Label" parent="UI/Dados"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 45.0
-offset_top = -30.0
-offset_right = 146.0
-offset_bottom = -2.0
-grow_vertical = 2
-text = "Carnes: 50"
-label_settings = SubResource("LabelSettings_km4ht")
-
-[node name="Ouro" type="Label" parent="UI/Dados"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -168.0
-offset_top = -30.0
-offset_right = -45.0
-offset_bottom = -2.0
-grow_horizontal = 0
-grow_vertical = 2
-text = "Ouro: 20.000"
-label_settings = SubResource("LabelSettings_km4ht")
+[node name="UI" parent="." instance=ExtResource("2_phuyy")]
