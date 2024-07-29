@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://snihbqh4sbl3"]
+[gd_scene load_steps=10 format=3 uid="uid://snihbqh4sbl3"]
 
 [ext_resource type="Script" path="res://ui/ui.gd" id="1_1ro6i"]
 [ext_resource type="Texture2D" uid="uid://5ihmkouv1k68" path="res://assets/addons/Tiny_Swords/UI/Banners/Banner_Horizontal.png" id="1_bb1tw"]
+[ext_resource type="Texture2D" uid="uid://dnca7ylw2s1wc" path="res://assets/addons/Tiny_Swords/Resources/Resources/M_Idle_(NoShadow).png" id="3_n58yw"]
+
+[sub_resource type="SystemFont" id="SystemFont_gqf1u"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_tks44"]
+font = SubResource("SystemFont_gqf1u")
 font_size = 30
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wsd5j"]
 texture = ExtResource("1_bb1tw")
@@ -16,9 +24,18 @@ axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(32, 48, 128, 128)
 
+[sub_resource type="SystemFont" id="SystemFont_wqs5p"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
 [sub_resource type="LabelSettings" id="LabelSettings_km4ht"]
-font_size = 20
+font = SubResource("SystemFont_wqs5p")
+font_size = 30
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rk5pc"]
+atlas = ExtResource("3_n58yw")
+region = Rect2(40, 48, 56, 56)
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_1ro6i")
@@ -29,9 +46,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -38.0
-offset_top = 35.0
+offset_top = 25.0
 offset_right = 38.0
-offset_bottom = 77.0
+offset_bottom = 67.0
 grow_horizontal = 2
 text = "00:00"
 label_settings = SubResource("LabelSettings_tks44")
@@ -42,38 +59,42 @@ vertical_alignment = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -377.0
+offset_left = -185.0
 offset_top = 10.0
-offset_right = -10.0
-offset_bottom = 132.0
+offset_right = 49.0
+offset_bottom = 140.0
 grow_horizontal = 0
+scale = Vector2(0.75, 0.75)
+size_flags_horizontal = 8
 theme_override_styles/panel = SubResource("StyleBoxTexture_wsd5j")
 
-[node name="Carne" type="Label" parent="Dados"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 45.0
-offset_top = -30.0
-offset_right = 146.0
-offset_bottom = -2.0
-grow_vertical = 2
-text = "Carnes: 50"
-label_settings = SubResource("LabelSettings_km4ht")
-
-[node name="Ouro" type="Label" parent="Dados"]
+[node name="Quantidade_Carne" type="Label" parent="Dados"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -168.0
-offset_top = -30.0
-offset_right = -45.0
-offset_bottom = -2.0
+offset_left = -108.0
+offset_top = -35.0
+offset_right = -65.0
+offset_bottom = 3.0
 grow_horizontal = 0
 grow_vertical = 2
-text = "Ouro: 20.000"
+text = "0"
 label_settings = SubResource("LabelSettings_km4ht")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Imagem_Carne" type="TextureRect" parent="Dados"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 65.0
+offset_top = -44.0
+offset_right = 121.0
+offset_bottom = 12.0
+grow_vertical = 2
+texture = SubResource("AtlasTexture_rk5pc")

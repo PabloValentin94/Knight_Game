@@ -54,11 +54,19 @@ var direcoes: Vector2 = Vector2(0,0)
 
 @onready var quadro_animacoes: AnimationPlayer = $Animacoes
 
+# Um Signal é um recurso parecido com uma função e que possui alcance
+# global, ou seja, está disponível em todo o projeto.
+
+# signal Meat_Collected(valor_restaurado_vida: int)
+signal Meat_Collected()
+
 func _ready() -> void:
 	
 	barra_vida.max_value = vida_maxima_player
 	
 	barra_vida.value = vida_player
+	
+	Global.player = self
 
 func _process(delta: float) -> void:
 	
@@ -263,6 +271,8 @@ func Heal(regeneracao: int) -> void:
 	print("Vida antes da cura: ", vida_player, "\n")
 	
 	vida_player += regeneracao
+	
+	barra_vida.value += regeneracao
 	
 	if vida_player > vida_maxima_player:
 		
